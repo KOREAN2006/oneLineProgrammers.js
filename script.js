@@ -1,4 +1,5 @@
 const data = [
+    { page: 1 },
     { name: "두 수의 곱 구하기", link: 120804, ans: "( num1, num2 ) => num1 * num2;" },
     { name: "두 수의 나눗셈", link: 120806, ans: "( num1, num2 ) => ~~( num1 * 1000 / num2 );" },
     { name: "숫자 비교하기", link: 120807, ans: "( num1, num2 ) => num1 - num2 ? -1 : 1;" },
@@ -19,6 +20,7 @@ const data = [
     { name: "특정 문자 제거하기", link: 120826, ans: "( str, char ) => str.replaceAll( char, \"\" );" },
     { name: "각도기", link: 120829, ans: "a => a < 90 ? 1 : a === 90 ? 2 : a < 180 ? 3 : 4;" },
     { name: "양꼬치", link: 120830, ans: "( n, k ) => n * 12000 + ( k - Math.floor( n / 10 ) ) * 2000;" },
+    { page: 2 },
     { name: "짝수의 합", link: 120831, ans: "n => ( Math.floor( n / 2 ) + 0.5 ) ** 2 - 0.25;" },
     { name: "배열 자르기", link: 120833, ans: "( numbers, num1, num2 ) => numbers.slice( num1, num2 + 1 );" },
     { name: "순서쌍의 개수", link: 120836, ans: "n => '@'.repeat(n).split(\"\").filter( ( _, i ) => !( n % i ) ).length;" },
@@ -38,6 +40,18 @@ const data = [
     { name: "제곱수 판별하기", link: 120909, ans: "n => Math.sqrt(n) % 1 ? 2 : 1;" },
     { name: "세균 증식", link: 120910, ans: "( n, t ) => n * 2 ** t;" },
     { name: "약수 구하기", link: 120897, ans: "n => '@'.repeat(n).split(\"\").map( ( _, i ) => i + 1 ).filter( i => !( n % i ) );" },
-    { name: "짝수는 싫어요", link: 120813, ans: "n => Array(Math.ceil( n / 2 )).fill(2763).map( ( _, i ) => i * 2 + 1 );" }
+    { name: "짝수는 싫어요", link: 120813, ans: "n => Array(Math.ceil( n / 2 )).fill(2763).map( ( _, i ) => i * 2 + 1 );" },
+    { page: 3 },
+    { name: "문자열을 정수로 변환하기", link: 181848, ans: "n_str => Number(n_str);" },
+    { page: 4 },
+    { name: "문자열 정수의 합", link: 181849, ans: "num_str => num_str.split(\"\").reduce( ( a, b ) => a + Number(b), 0 );" },
+    { name: "뒤에서 5등까지", link: 181853, ans: "num_list => num_list.sort( ( a, b ) => a - b ).filter( ( num, i ) => i < 5 );" },
+    { name: "배열의 길이에 따라 다른 연산하기", link: 181854, ans: "( arr, n ) => arr.map( ( num, i ) => ( arr.length % 2 === i % 2 ) ? num : num + n );" },
+    { page: 11 },
+    { name: "안전지대", link: 120866, ans: "b => b.length ** 2 - b.map( ( bb, i ) => bb.map( ( s, ii ) => new Array(9).fill(2).reduce( ( r, _ ,ri ) => r || b[Math.max( Math.min( ~~(ri/3)-1+i, b.length-1 ), 0 )][Math.max( Math.min( ri%3-1+ii, b.length-1 ), 0 )], 0 ) ).filter(Boolean).length ).reduce( ( rFinal, nFinal ) => rFinal + nFinal, 0 );" },
+    { name: "주사위 게임 3", link: 181916, ans: "( a, b, c, d ) => ( plate => plate[0].sideNum === 4 ? plate[0].sideName * 1111 : plate[0].sideNum === 3 ? ( plate[0].sideName * 10 + plate[1].sideName ) ** 2 : plate[1].sideNum === 2 ? plate[1].sideName ** 2 - plate[0].sideName ** 2 :  plate[0].sideNum === 2 ? plate[1].sideName * plate[2].sideName : plate[0].sideName )('@'.repeat(6).split(\"\").map( ( trash, i ) => ({ sideName: i + 1, sideNum: 4 - `${a}${b}${c}${d}`.split( i + 1 ).join(\"\").length }) ).sort( ( x, y ) => y.sideNum - x.sideNum ));" },
+    { page: 12 },
+    { name: "겹치는 선분의 길이", link: 120876, ans: "lines => [ lines.map( line => '@'.repeat( line[1] - line[0] ).split(\"\").map( ( empty, i ) => i + line[0] )), '@' ].reduce( ( a, data, i ) => !i ? { lines: data, answer: '@'.repeat(201).split(\"\").map( ( empty, i ) => i - 100 ).filter( i => data.reduce( ( b, dots ) => dots.includes(i) ? b + 1 : b, 0 ) > 1 ) } : a.answer.length, {} );" },
+    { name: "옹알이 (1)", link: 120956, ans: "babbling => babbling.reduce( ( a, word ) => a.cans.reduce( ( b, can ) => b.split(can).join('@'), word ).split('@').join(\"\") ? a : { cans: a.cans, answer: a.answer + 1 }, { cans: [ \"aya\", \"ye\", \"woo\", \"ma\" ], answer: 0 } ).answer;" }
 ];
-data.forEach( ( aData, index ) => document.querySelector("dl").innerHTML += `<dt class="num${1001+index}"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/${aData.link}">${aData.name}</a></dt><dd class="num${1001+index}">const solution = ${aData.ans}</dd>` );
+data.forEach( ( aData, index ) => document.querySelector("dl").innerHTML += aData.page ? `<h3 class="page${aData.page}">page ${aData.page}</h3>` : `<dt><a href="https://school.programmers.co.kr/learn/courses/30/lessons/${aData.link}">${aData.name}</a></dt><dd>const solution = ${aData.ans}</dd>` );
