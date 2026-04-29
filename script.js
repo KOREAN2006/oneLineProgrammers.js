@@ -18,6 +18,26 @@ const data = [
     { name: "문자 반복 출력하기", link: 120825, ans: "( str, n ) => str.split(\"\").map( char => char.repeat(n) ).join(\"\");" },
     { name: "특정 문자 제거하기", link: 120826, ans: "( str, char ) => str.replaceAll( char, \"\" );" },
     { name: "각도기", link: 120829, ans: "a => a < 90 ? 1 : a === 90 ? 2 : a < 180 ? 3 : 4;" },
-    { name: "양꼬치", link: 120830, ans: "( n, k ) => n * 12000 + ( k - Math.floor( n / 10 ) ) * 2000;" }
+    { name: "양꼬치", link: 120830, ans: "( n, k ) => n * 12000 + ( k - Math.floor( n / 10 ) ) * 2000;" },
+    { name: "짝수의 합", link: 120831, ans: "n => ( Math.floor( n / 2 ) + 0.5 ) ** 2 - 0.25;" },
+    { name: "배열 자르기", link: 120833, ans: "( numbers, num1, num2 ) => numbers.slice( num1, num2 + 1 );" },
+    { name: "순서쌍의 개수", link: 120836, ans: "n => '@'.repeat(n).split(\"\").filter( ( _, i ) => !( n % i ) ).length;" },
+    { name: "점의 위치 구하기", link: 120841, ans: "dot => 1 + ( dot[0] * dot[1] < 0 ) + ( dot[1] < 0 ) * 2;" },
+    { name: "최댓값 만들기(1)", link: 120847, ans: "numbers => numbers.sort( ( a, b ) => b - a ).slice( 0, 2 ).reduce( ( r, num ) => r * num, 1 );" },
+    { name: "모음 제거", link: 120849, ans: "str => \"aeiou\".split(\"\").reduce( ( r, char ) => r.replaceAll( char, \"\" ), str );" },
+    { name: "숨어있는 숫자의 덧셈 (1)", link: 120851, ans: "str => str.split(\"\").filter( c => !isNaN(c) ).reduce( ( r, num ) => r + Number(num), 0 );" },
+    { name: "배열 원소의 길이", link: 120854, ans: "strlist => strlist.map( a => a.length );" },
+    { name: "삼각형의 완성조건 (1)", link: 120889, ans: "sides => sides.sort( ( a, b ) => b - a ).reduce( ( r, num, i ) => i ? r - num : num, 2763 ) < 0 ? 1 : 2;" },
+    { name: "대문자와 소문자", link: 120893, ans: "str => str.split(\"\").map( char => char.charCodeAt() > 96 ? char.toUpperCase() : char.toLowerCase() ).join(\"\");" },
+    { name: "편지", link: 120898, ans: "message => message.length * 2;" },
+    { name: "가장 큰 수 찾기", link: 120899, ans: "arr => arr.reduce( ( r, n, i ) => n > r[0] ? [ n, i ] : r, [ -1, 2763 ] );" },
+    { name: "배열의 유사도", link: 120903, ans: "( s1, s2 ) => s1.length + s2.length - [...new Set([ ...s1, ...s2 ])].length;" },
+    { name: "n의 배수 고르기", link: 120905, ans: "( n, numlist ) => numlist.filter( num => !( num % n ) ); " },
+    { name: "자릿수 더하기", link: 120906, ans: "n => `${n}`.split(\"\").reduce( ( r, a ) => +a + r, 0 );" },
+    { name: "문자열안에 문자열", link: 120908, ans: "( str1, str2 ) => str1.split(str2).length - 1 ? 1 : 2;" },
+    { name: "제곱수 판별하기", link: 120909, ans: "n => Math.sqrt(n) % 1 ? 2 : 1;" },
+    { name: "세균 증식", link: 120910, ans: "( n, t ) => n * 2 ** t;" },
+    { name: "약수 구하기", link: 120897, ans: "n => '@'.repeat(n).split(\"\").map( ( _, i ) => i + 1 ).filter( i => !( n % i ) );" },
+    { name: "짝수는 싫어요", link: 120813, ans: "n => Array(Math.ceil( n / 2 )).fill(2763).map( ( _, i ) => i * 2 + 1 );" }
 ];
 data.forEach( aData => document.querySelector("dl").innerHTML += `<dt><a href="https://school.programmers.co.kr/learn/courses/30/lessons/${aData.link}">${aData.name}</a></dt><dd>const solution = ${aData.ans}</dd>` );
