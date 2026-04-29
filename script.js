@@ -40,4 +40,4 @@ const data = [
     { name: "약수 구하기", link: 120897, ans: "n => '@'.repeat(n).split(\"\").map( ( _, i ) => i + 1 ).filter( i => !( n % i ) );" },
     { name: "짝수는 싫어요", link: 120813, ans: "n => Array(Math.ceil( n / 2 )).fill(2763).map( ( _, i ) => i * 2 + 1 );" }
 ];
-data.forEach( aData => document.querySelector("dl").innerHTML += `<dt><a href="https://school.programmers.co.kr/learn/courses/30/lessons/${aData.link}">${aData.name}</a></dt><dd>const solution = ${aData.ans}</dd>` );
+data.forEach( ( aData, index ) => document.querySelector("dl").innerHTML += `<dt class="num${1001+index}"><a href="https://school.programmers.co.kr/learn/courses/30/lessons/${aData.link}">${aData.name}</a></dt><dd class="num${1001+index}">const solution = ${aData.ans}</dd>` );
