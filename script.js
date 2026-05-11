@@ -55,6 +55,7 @@ const data = [
     { name: "x 사이의 개수", link: 181867, ans: "myString => myString.split('x').map( arr => arr.length );" },
     { page: 11 },
     { name: "특이한 정렬", link: 120880, ans: "( numlist, n ) => ( BFDIA => numlist.sort(BFDIA) )( ( a, b ) => Math.abs( n - a ) - Math.abs( n - b ) - ( a > b ) * 0.5 );" },
+    { name: "연속된 수의 합", link: 120923, ans: "( num, total ) => new Array(num).fill( total / num ).map( ( number, i ) => number + i - ( num - 1 ) / 2 );" },
     { name: "안전지대", link: 120866, ans: "b => b.length ** 2 - b.map( ( bb, i ) => bb.map( ( s, ii ) => new Array(9).fill(2).reduce( ( r, _ ,ri ) => r || b[Math.max( Math.min( ~~(ri/3)-1+i, b.length-1 ), 0 )][Math.max( Math.min( ri%3-1+ii, b.length-1 ), 0 )], 0 ) ).filter(Boolean).length ).reduce( ( rFinal, nFinal ) => rFinal + nFinal, 0 );" },
     { name: "주사위 게임 3", link: 181916, ans: "( a, b, c, d ) => ( plate => plate[0].sideNum === 4 ? plate[0].sideName * 1111 : plate[0].sideNum === 3 ? ( plate[0].sideName * 10 + plate[1].sideName ) ** 2 : plate[1].sideNum === 2 ? plate[1].sideName ** 2 - plate[0].sideName ** 2 :  plate[0].sideNum === 2 ? plate[1].sideName * plate[2].sideName : plate[0].sideName )('@'.repeat(6).split(\"\").map( ( trash, i ) => ({ sideName: i + 1, sideNum: 4 - `${a}${b}${c}${d}`.split( i + 1 ).join(\"\").length }) ).sort( ( x, y ) => y.sideNum - x.sideNum ));" },
     { page: 12 },
